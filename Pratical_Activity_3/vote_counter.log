@@ -1,0 +1,16 @@
+
+xcelium> run
+                   Time Input Output
+                   ---- ----- ------
+  At time                    0, V = 000, R = 0001
+  At time                 1000, V = 001, R = 0010
+  At time                 2000, V = 010, R = 0010
+  At time                 3000, V = 011, R = 0100
+  At time                 4000, V = 100, R = 0010
+  At time                 5000, V = 101, R = 0100
+  At time                 6000, V = 110, R = 0100
+  At time                 7000, V = 111, R = 1000
+Simulation complete via $finish(1) at time 90 NS + 0
+./contador_votos_tb.sv:23 		#10 $finish;     // End simulation after all test cases
+xcelium> exit
+
