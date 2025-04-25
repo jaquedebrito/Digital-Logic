@@ -1,0 +1,34 @@
+
+Applying reset...
+T=0 | State=START | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+Waiting for Street 1 Green...
+T=1 | State=STREET_1_GREEN | Counter=0 | S1G=1 | S1Y=0 | S1R=0 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+Waiting for Street 1 Yellow...
+VERIFICATION: Street 1 Green lasted 1 cycle as expected
+T=3 | State=STREET_1_YELLOW | Counter=1 | S1G=0 | S1Y=1 | S1R=0 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+Waiting for Street 2 Green...
+T=5 | State=STREET_1_YELLOW | Counter=0 | S1G=0 | S1Y=1 | S1R=0 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+T=7 | State=STREET_2_GREEN | Counter=3 | S1G=0 | S1Y=0 | S1R=1 | S2G=1 | S2Y=0 | S2R=0 | PG=0 | PR=1 | Ped=0
+T=9 | State=STREET_2_GREEN | Counter=2 | S1G=0 | S1Y=0 | S1R=1 | S2G=1 | S2Y=0 | S2R=0 | PG=0 | PR=1 | Ped=0
+Waiting for Street 2 Yellow...
+T=11 | State=STREET_2_GREEN | Counter=1 | S1G=0 | S1Y=0 | S1R=1 | S2G=1 | S2Y=0 | S2R=0 | PG=0 | PR=1 | Ped=0
+T=13 | State=STREET_2_GREEN | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=1 | S2Y=0 | S2R=0 | PG=0 | PR=1 | Ped=0
+VERIFICATION: Street 2 Green lasted 4 cycles as expected
+T=15 | State=STREET_2_YELLOW | Counter=1 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=1 | S2R=0 | PG=0 | PR=1 | Ped=0
+Activating pedestrian signal...
+Waiting for Pedestrian Green...
+T=17 | State=STREET_2_YELLOW | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=1 | S2R=0 | PG=0 | PR=1 | Ped=1
+T=19 | State=PEDESTRIAN_GREEN | Counter=4 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=1 | PR=0 | Ped=1
+T=21 | State=PEDESTRIAN_GREEN | Counter=3 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=1 | PR=0 | Ped=1
+T=23 | State=PEDESTRIAN_GREEN | Counter=2 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=1 | PR=0 | Ped=1
+Waiting for Pedestrian Red...
+T=25 | State=PEDESTRIAN_GREEN | Counter=1 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=1 | PR=0 | Ped=1
+T=27 | State=PEDESTRIAN_GREEN | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=1 | PR=0 | Ped=1
+VERIFICATION: Pedestrian Green lasted 5 cycles as expected
+T=29 | State=PEDESTRIAN_RED | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=1
+Verifying return to normal sequence...
+T=30 | State=PEDESTRIAN_RED | Counter=0 | S1G=0 | S1Y=0 | S1R=1 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+T=31 | State=STREET_1_GREEN | Counter=0 | S1G=1 | S1Y=0 | S1R=0 | S2G=0 | S2Y=0 | S2R=1 | PG=0 | PR=1 | Ped=0
+Test successfully completed!
+Simulation complete via $finish(1) at time 32 NS + 0
+./tb_sinaleira2.sv:117         $finish;
