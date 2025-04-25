@@ -1,12 +1,7 @@
 Comparator with Constant
 
 Practical Task:
-Build the design using logic gates from the library (in a hierarchical manner!
-Tip:
-
-cat fast_vdd1v0_basicCells_hvt.lib | grep "function\|cell "
-
-)
+Build the design using logic gates from the library (in a hierarchical manner! Tip: cat fast_vdd1v0_basicCells_hvt.lib | grep "function\|cell ")
 
 You must create a hierarchical block (the module must be named sistema_x) that instantiates the required cells (this is your design!), and instantiate this block in the testbench (module named tb).
 Design Specification:
