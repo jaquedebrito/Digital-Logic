@@ -1,79 +1,72 @@
 //JAQUELINE FERREIRA DE BRITO
-//CLASS ACTIVITY - 8x1 MULTIPLEXER
+//CLASS ACTIVITY - 8x1 MULTIPLEXER TESTBENCH
 
 `timescale 1ns/10ps
 
-module meu_primeiro_mux8x1 (
-    input logic EN,
-    input logic [3:0] A,
-    input logic [7:0] X,
-    output logic Q
-);
+module tb();
+    logic EN;
+    logic [3:0] A;
+    logic [7:0] X;
+    logic Q;
     
-    // Wires for address decoding
-    wire [7:0] selected_inputs;
-    wire mux_out;
-    wire [2:0] not_A;
-    wire sel0, sel1, sel2, sel3, sel4, sel5, sel6, sel7;
+    // Instantiation of the module under test
+    meu_primeiro_mux8x1 duv (
+        .EN(EN),
+        .A(A),
+        .X(X),
+        .Q(Q)
+    );
     
-    // Inverters for address (using only the 3 least significant bits)
-    INVX1HVT inv_A0 (not_A[0], A[0]);
-    INVX1HVT inv_A1 (not_A[1], A[1]);
-    INVX1HVT inv_A2 (not_A[2], A[2]);
+    // Stimulus generation
+    initial begin
+        // Initialization
+        EN = 0;
+        A = 4'b0000;
+        X = 8'b10101010;
+        #10;
+        
+        // Test 1: Verify output is zero when EN=0
+        $display("TEST 1: Verify enable signal (EN=0)");
+        repeat (4) begin
+            A = $random;
+            X = $random;
+            #10;
+            if (Q !== 0) $error("FAILED: Output must be 0 when EN=0, A=%b, X=%b, Q=%b", A, X, Q);
+            else $display("PASSED: EN=0, A=%b, X=%b, Q=%b", A, X, Q);
+        end
+        
+        // Test 2: Verify each selection when EN=1
+        $display("TEST 2: Verify all possible selections (EN=1)");
+        EN = 1;
+        X = 8'b10101010; // Alternating pattern for easier verification
+        
+        for (int i = 0; i < 8; i++) begin
+            A = i;
+            #10;
+            if (Q !== X[i]) $error("FAILED: For A=%d, expected Q=%b, got Q=%b", i, X[i], Q);
+            else $display("PASSED: A=%d selects X[%d]=%b, Q=%b", i, i, X[i], Q);
+        end
+        
+        // Test 3: Random values with EN=1
+        $display("TEST 3: Random values with EN=1");
+        repeat (10) begin
+            int addr = $urandom_range(0, 7); // Limited to 0-7 for clarity
+            A = addr;
+            X = $random;
+            #10;
+            if (Q !== X[addr]) 
+                $error("FAILED: For A=%d, X=%b, expected Q=%b, got Q=%b", addr, X, X[addr], Q);
+            else 
+                $display("PASSED: A=%d, X=%b, Q=%b", addr, X, Q);
+        end
+        
+        $display("Simulation completed");
+        $finish;
+    end
     
-    // 3:8 Decoder (using only the 3 least significant bits of the address)
-    
-    // Selector 0 - A=000
-    AND3X1HVT and_sel0 (sel0, not_A[2], not_A[1], not_A[0]);
-    
-    // Selector 1 - A=001
-    AND3X1HVT and_sel1 (sel1, not_A[2], not_A[1], A[0]);
-    
-    // Selector 2 - A=010
-    AND3X1HVT and_sel2 (sel2, not_A[2], A[1], not_A[0]);
-    
-    // Selector 3 - A=011
-    AND3X1HVT and_sel3 (sel3, not_A[2], A[1], A[0]);
-    
-    // Selector 4 - A=100
-    AND3X1HVT and_sel4 (sel4, A[2], not_A[1], not_A[0]);
-    
-    // Selector 5 - A=101
-    AND3X1HVT and_sel5 (sel5, A[2], not_A[1], A[0]);
-    
-    // Selector 6 - A=110
-    AND3X1HVT and_sel6 (sel6, A[2], A[1], not_A[0]);
-    
-    // Selector 7 - A=111
-    AND3X1HVT and_sel7 (sel7, A[2], A[1], A[0]);
-    
-    // Connect each input with its selection signal
-    // CORRECTION: Check the order of parameters in AND2X1HVT gates (output, input1, input2)
-    AND2X1HVT and_input0 (selected_inputs[0], sel0, X[0]);
-    AND2X1HVT and_input1 (selected_inputs[1], sel1, X[1]);
-    AND2X1HVT and_input2 (selected_inputs[2], sel2, X[2]);
-    AND2X1HVT and_input3 (selected_inputs[3], sel3, X[3]);
-    AND2X1HVT and_input4 (selected_inputs[4], sel4, X[4]);
-    AND2X1HVT and_input5 (selected_inputs[5], sel5, X[5]);
-    AND2X1HVT and_input6 (selected_inputs[6], sel6, X[6]);
-    AND2X1HVT and_input7 (selected_inputs[7], sel7, X[7]);
-    
-    // Combining selected inputs using OR gates
-    wire or_out1, or_out2, or_out3, or_out4, or_out5, or_out6;
-    
-    OR2X1HVT or_1 (or_out1, selected_inputs[0], selected_inputs[1]);
-    OR2X1HVT or_2 (or_out2, selected_inputs[2], selected_inputs[3]);
-    OR2X1HVT or_3 (or_out3, selected_inputs[4], selected_inputs[5]);
-    OR2X1HVT or_4 (or_out4, selected_inputs[6], selected_inputs[7]);
-    
-    // Second layer of OR gates
-    OR2X1HVT or_5 (or_out5, or_out1, or_out2);
-    OR2X1HVT or_6 (or_out6, or_out3, or_out4);
-    
-    // Final OR gate
-    OR2X1HVT or_final (mux_out, or_out5, or_out6);
-    
-    // Apply the enable signal (EN)
-    AND2X1HVT enable_and (Q, mux_out, EN);
+    // Monitor to display values
+    initial begin
+        $monitor("Time=%0t, EN=%b, A=%b, X=%b, Q=%b", $time, EN, A, X, Q);
+    end
     
 endmodule
