@@ -1,0 +1,110 @@
+xcelium> run
+Tempo=0, EN=0, A=0000, X=10101010, Q=0
+TESTE 1: Verificar sinal de habilitação (EN=0)
+Tempo=1000, EN=0, A=0100, X=10000001, Q=0
+PASSOU: EN=0, A=0100, X=10000001, Q=0
+Tempo=2000, EN=0, A=1001, X=01100011, Q=0
+PASSOU: EN=0, A=1001, X=01100011, Q=0
+Tempo=3000, EN=0, A=1101, X=10001101, Q=0
+PASSOU: EN=0, A=1101, X=10001101, Q=0
+Tempo=4000, EN=0, A=0101, X=00010010, Q=0
+PASSOU: EN=0, A=0101, X=00010010, Q=0
+TESTE 2: Verificar todas as seleções possíveis (EN=1)
+Tempo=5000, EN=1, A=0000, X=10101010, Q=0
+PASSOU: A=          0 seleciona X[          0]=0, Q=0
+Tempo=6000, EN=1, A=0001, X=10101010, Q=1
+PASSOU: A=          1 seleciona X[          1]=1, Q=1
+Tempo=7000, EN=1, A=0010, X=10101010, Q=0
+PASSOU: A=          2 seleciona X[          2]=0, Q=0
+Tempo=8000, EN=1, A=0011, X=10101010, Q=1
+PASSOU: A=          3 seleciona X[          3]=1, Q=1
+Tempo=9000, EN=1, A=0100, X=10101010, Q=0
+PASSOU: A=          4 seleciona X[          4]=0, Q=0
+Tempo=10000, EN=1, A=0101, X=10101010, Q=1
+PASSOU: A=          5 seleciona X[          5]=1, Q=1
+Tempo=11000, EN=1, A=0110, X=10101010, Q=0
+PASSOU: A=          6 seleciona X[          6]=0, Q=0
+Tempo=12000, EN=1, A=0111, X=10101010, Q=1
+PASSOU: A=          7 seleciona X[          7]=1, Q=1
+TESTE 3: Valores aleatórios com EN=1
+Tempo=13000, EN=1, A=0111, X=00000001, Q=0
+PASSOU: A=          7, X=00000001, Q=0
+Tempo=14000, EN=1, A=0111, X=00001101, Q=0
+PASSOU: A=          7, X=00001101, Q=0
+Tempo=15000, EN=1, A=0111, X=01110110, Q=0
+PASSOU: A=          7, X=01110110, Q=0
+Tempo=16000, EN=1, A=0111, X=00111101, Q=0
+PASSOU: A=          7, X=00111101, Q=0
+Tempo=17000, EN=1, A=0111, X=11101101, Q=1
+PASSOU: A=          7, X=11101101, Q=1
+Tempo=18000, EN=1, A=0111, X=10001100, Q=1
+PASSOU: A=          7, X=10001100, Q=1
+Tempo=19000, EN=1, A=0111, X=11111001, Q=1
+PASSOU: A=          7, X=11111001, Q=1
+Tempo=20000, EN=1, A=0111, X=11000110, Q=1
+PASSOU: A=          7, X=11000110, Q=1
+Tempo=21000, EN=1, A=0111, X=11000101, Q=1
+PASSOU: A=          7, X=11000101, Q=1
+Tempo=22000, EN=1, A=0111, X=10101010, Q=1
+PASSOU: A=          7, X=10101010, Q=1
+Simulação concluída
+Simulation complete via $finish(1) at time 230 NS + 0
+./mux8x1_tb.sv:64         $finish;
+xcelium> run
+xmsim: *E,RNFNSH: Cannot continue simulation due to a previous $finish.
+xcelium> reset
+SVSEED default: 1
+Loaded snapshot worklib.tb:sv
+xcelium> run
+Tempo=0, EN=0, A=0000, X=10101010, Q=0
+TESTE 1: Verificar sinal de habilitação (EN=0)
+Tempo=1000, EN=0, A=0100, X=10000001, Q=0
+PASSOU: EN=0, A=0100, X=10000001, Q=0
+Tempo=2000, EN=0, A=1001, X=01100011, Q=0
+PASSOU: EN=0, A=1001, X=01100011, Q=0
+Tempo=3000, EN=0, A=1101, X=10001101, Q=0
+PASSOU: EN=0, A=1101, X=10001101, Q=0
+Tempo=4000, EN=0, A=0101, X=00010010, Q=0
+PASSOU: EN=0, A=0101, X=00010010, Q=0
+TESTE 2: Verificar todas as seleções possíveis (EN=1)
+Tempo=5000, EN=1, A=0000, X=10101010, Q=0
+PASSOU: A=          0 seleciona X[          0]=0, Q=0
+Tempo=6000, EN=1, A=0001, X=10101010, Q=1
+PASSOU: A=          1 seleciona X[          1]=1, Q=1
+Tempo=7000, EN=1, A=0010, X=10101010, Q=0
+PASSOU: A=          2 seleciona X[          2]=0, Q=0
+Tempo=8000, EN=1, A=0011, X=10101010, Q=1
+PASSOU: A=          3 seleciona X[          3]=1, Q=1
+Tempo=9000, EN=1, A=0100, X=10101010, Q=0
+PASSOU: A=          4 seleciona X[          4]=0, Q=0
+Tempo=10000, EN=1, A=0101, X=10101010, Q=1
+PASSOU: A=          5 seleciona X[          5]=1, Q=1
+Tempo=11000, EN=1, A=0110, X=10101010, Q=0
+PASSOU: A=          6 seleciona X[          6]=0, Q=0
+Tempo=12000, EN=1, A=0111, X=10101010, Q=1
+PASSOU: A=          7 seleciona X[          7]=1, Q=1
+TESTE 3: Valores aleatórios com EN=1
+Tempo=13000, EN=1, A=0111, X=00000001, Q=0
+PASSOU: A=          7, X=00000001, Q=0
+Tempo=14000, EN=1, A=0111, X=00001101, Q=0
+PASSOU: A=          7, X=00001101, Q=0
+Tempo=15000, EN=1, A=0111, X=01110110, Q=0
+PASSOU: A=          7, X=01110110, Q=0
+Tempo=16000, EN=1, A=0111, X=00111101, Q=0
+PASSOU: A=          7, X=00111101, Q=0
+Tempo=17000, EN=1, A=0111, X=11101101, Q=1
+PASSOU: A=          7, X=11101101, Q=1
+Tempo=18000, EN=1, A=0111, X=10001100, Q=1
+PASSOU: A=          7, X=10001100, Q=1
+Tempo=19000, EN=1, A=0111, X=11111001, Q=1
+PASSOU: A=          7, X=11111001, Q=1
+Tempo=20000, EN=1, A=0111, X=11000110, Q=1
+PASSOU: A=          7, X=11000110, Q=1
+Tempo=21000, EN=1, A=0111, X=11000101, Q=1
+PASSOU: A=          7, X=11000101, Q=1
+Tempo=22000, EN=1, A=0111, X=10101010, Q=1
+PASSOU: A=          7, X=10101010, Q=1
+Simulação concluída
+Simulation complete via $finish(1) at time 230 NS + 0
+./mux8x1_tb.sv:64         $finish;
+
