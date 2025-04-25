@@ -1,0 +1,9 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(24Apr2025:15:26:44):( xrun fast_vdd1v0_basicCells_hvt.v sistema_x.sv sistema_x_tb.sv -gui -access +rw )&&(./xcelium.d/env.d/env.history.24Apr2025_15_26_44)
+s2::(24Apr2025:15:34:36):( xrun fast_vdd1v0_basicCells_hvt.v sistema_y.sv sistema_y_tb.sv -gui -access +rw )&&(./xcelium.d/env.d/env.history.24Apr2025_15_34_36)
+s3::(25Apr2025:08:39:35):( xrun fast_vdd1v0_basicCells_hvt.v sistema_y.sv sistema_x.sv tb.sv -gui -access +rw )&&(./xcelium.d/env.d/env.history.25Apr2025_08_39_35)
+s4::(25Apr2025:08:51:15):( xrun fast_vdd1v0_basicCells_hvt.v sistema_y.sv sistema_y_tb.sv -gui -access +rw )&&(./xcelium.d/env.d/env.history.25Apr2025_08_51_15)
+s5::(25Apr2025:08:52:19):( xrun fast_vdd1v0_basicCells_hvt.v sistema_x.sv sistema_x_tb.sv -gui -access +rw )&&(./xcelium.d/env.d/env.history.25Apr2025_08_52_19)

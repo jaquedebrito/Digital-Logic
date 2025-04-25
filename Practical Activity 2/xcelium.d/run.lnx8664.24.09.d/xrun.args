@@ -1,0 +1,10 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+fast_vdd1v0_basicCells_hvt.v
+sistema_x.sv
+sistema_x_tb.sv
+-gui
+-access
++rw

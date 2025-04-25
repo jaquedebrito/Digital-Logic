@@ -1,0 +1,123 @@
+# SimVision Command Script (sex abr 25 08:47:40 -03 2025)
+#
+# Version 24.09.s001
+#
+# You can restore this configuration with:
+#
+#      xrun fast_vdd1v0_basicCells_hvt.v sistema_y.sv sistema_x.sv tb.sv -access +rw -input /home/aluno/CI/Logica_Lucas/Tarefa_2/sistema_xand_y.tcl
+#
+
+
+#
+# Preferences
+#
+preferences set waveform-print-variables all
+preferences set waveform-print-time all
+preferences set expand-attributes begin_time
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set cursorctl-dont-show-sync-warning 1
+preferences set exportdlg-startFormat vcd
+preferences set waveform-print-paper {A4 (210mm x 297mm)}
+preferences set exportdlg-file estrutura_10kns
+preferences set exportdlg-rangeTo 10000
+preferences set toolbar-txe_waveform_toggle-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set waveform-print-colors {As shown on screen}
+preferences set toolbar-Windows-WaveWindow {
+  usual
+  position -pos 2
+}
+preferences set toolbar-Windows-WatchList {
+  usual
+  position -pos 2 -anchor w
+}
+preferences set exportdlg-rangeFrom 0
+
+#
+# Simulator
+#
+database require simulator -hints {
+	simulator "xrun fast_vdd1v0_basicCells_hvt.v sistema_y.sv sistema_x.sv tb.sv -gui -access +rw -input sistema_xand_y.tcl"
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 730x500+261+33}] != ""} {
+    window geometry "Design Browser 1" 730x500+261+33
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::tb 
+browser set \
+    -signalsort name
+browser yview see  simulator::tb 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1920x977+-1+27}] != ""} {
+    window geometry "Waveform 1" 1920x977+-1+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	{simulator::tb.A[3:0]}
+	} ]
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	{simulator::tb.B[3:0]}
+	} ]
+waveform hierarchy collapse $id
+set id [waveform add -signals  {
+	simulator::tb.Q_x
+	} ]
+set id [waveform add -signals  {
+	simulator::tb.Q_y
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb.X[3:0]}
+	} ]
+waveform hierarchy collapse $id
+
+waveform xview limits 0 130000ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 1920x977+-1+27
+
+#
+# Layout selection
+#
+
