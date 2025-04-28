@@ -1,0 +1,11 @@
+xcelium> run
+Time=10: Street 1 [G=1, Y=0, R=0] | Street 2 [G=0, Y=0, R=1]
+Time=40: Street 1 [G=0, Y=1, R=0] | Street 2 [G=0, Y=0, R=1]
+Time=70: Street 1 [G=0, Y=0, R=1] | Street 2 [G=1, Y=0, R=0]
+Time=100: Street 1 [G=0, Y=0, R=1] | Street 2 [G=0, Y=1, R=0]
+Time=130: Street 1 [G=1, Y=0, R=0] | Street 2 [G=0, Y=0, R=1]
+Time=160: Street 1 [G=0, Y=1, R=0] | Street 2 [G=0, Y=0, R=1]
+Time=190: Street 1 [G=0, Y=0, R=1] | Street 2 [G=1, Y=0, R=0]
+Simulation complete via $finish(1) at time 210 NS + 0
+./sinaleira_tb.sv:89         #20 $finish;          // Terminate simulation
+

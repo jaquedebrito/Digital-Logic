@@ -1,0 +1,64 @@
+xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s001: Started on Apr 28, 2025 at 14:38:54 -03
+xrun
+	semaforo_pedestre.sv
+	semaforo_pedestre_tb.sv
+	-gui
+	-access +rw
+file: semaforo_pedestre.sv
+	module worklib.semaforo_pedestre:sv
+		errors: 0, warnings: 0
+file: semaforo_pedestre_tb.sv
+	module worklib.tb_semaforo_pedestre:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb_semaforo_pedestre
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.semaforo_pedestre:sv <0x7ded3d30>
+			streams:   5, words:  4453
+		worklib.tb_semaforo_pedestre:sv <0x4712a478>
+			streams:  12, words: 10228
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              2       2
+		Registers:           16      16
+		Scalar wires:        13       -
+		Always blocks:        3       3
+		Initial blocks:       3       3
+		Pseudo assignments:   8       -
+		Process Clocks:       1       1
+	Writing initial simulation snapshot: worklib.tb_semaforo_pedestre:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_semaforo_pedestre.Q1 tb_semaforo_pedestre.Q2 tb_semaforo_pedestre.Q3 tb_semaforo_pedestre.Q4 tb_semaforo_pedestre.Q5 tb_semaforo_pedestre.botao_pedestre tb_semaforo_pedestre.clk tb_semaforo_pedestre.reset
+Created probe 1
+xcelium> run
+Iniciando simulação...
+Time=0 : reset=1 botao=0 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Time=10 : reset=0 botao=0 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Time=40 : reset=0 botao=1 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Time=45 : reset=0 botao=1 | Q1=0 Q2=1 Q3=0 | Q4=1 Q5=0
+Time=50 : reset=0 botao=0 | Q1=0 Q2=1 Q3=0 | Q4=1 Q5=0
+Time=75 : reset=0 botao=0 | Q1=1 Q2=0 Q3=0 | Q4=0 Q5=1
+Time=95 : reset=0 botao=0 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Time=150 : reset=0 botao=1 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Time=155 : reset=0 botao=1 | Q1=0 Q2=1 Q3=0 | Q4=1 Q5=0
+Time=160 : reset=0 botao=0 | Q1=0 Q2=1 Q3=0 | Q4=1 Q5=0
+Time=185 : reset=0 botao=0 | Q1=1 Q2=0 Q3=0 | Q4=0 Q5=1
+Time=205 : reset=0 botao=0 | Q1=0 Q2=0 Q3=1 | Q4=1 Q5=0
+Simulation complete via $finish(1) at time 260 NS + 0
+./semaforo_pedestre_tb.sv:49         $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	24.09-s001: Exiting on Apr 28, 2025 at 14:51:28 -03  (total: 00:12:34)

@@ -1,0 +1,69 @@
+xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s001: Started on Apr 28, 2025 at 11:19:44 -03
+xrun
+	flip_flop_D.sv
+	flip_flop_D_tb.sv
+	-gui
+	-access +rw
+file: flip_flop_D.sv
+	module worklib.flip_flop_D:sv
+		errors: 0, warnings: 0
+file: flip_flop_D_tb.sv
+	module worklib.flip_flop_D_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		flip_flop_D_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.flip_flop_D:sv <0x6ff86353>
+			streams:   3, words:   733
+		worklib.flip_flop_D_tb:sv <0x10ca451d>
+			streams:   8, words:  8375
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           6       6
+		Scalar wires:        4       -
+		Vectored wires:      1       -
+		Always blocks:       3       3
+		Initial blocks:      2       2
+		Pseudo assignments:  4       -
+		Process Clocks:      1       1
+	Writing initial simulation snapshot: worklib.flip_flop_D_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm flip_flop_D_tb.clk flip_flop_D_tb.entrada flip_flop_D_tb.q flip_flop_D_tb.reset
+Created probe 1
+xcelium> run
+Time=0, entrada=00, q=x, reset=1
+Time=5, entrada=00, q=0, reset=1
+Time=10, entrada=00, q=0, reset=0
+Time=30, entrada=01, q=0, reset=0
+Time=35, entrada=01, q=1, reset=0
+Time=40, entrada=10, q=1, reset=0
+Time=45, entrada=10, q=0, reset=0
+Time=50, entrada=11, q=0, reset=0
+Time=55, entrada=11, q=1, reset=0
+Time=60, entrada=11, q=1, reset=1
+Time=65, entrada=11, q=0, reset=1
+Time=70, entrada=11, q=0, reset=0
+Time=75, entrada=11, q=1, reset=0
+Time=80, entrada=01, q=1, reset=0
+Time=85, entrada=01, q=0, reset=0
+Time=90, entrada=11, q=0, reset=0
+Time=95, entrada=11, q=1, reset=0
+Simulation complete via $finish(1) at time 100 NS + 0
+./flip_flop_D_tb.sv:53         #10 $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	24.09-s001: Exiting on Apr 28, 2025 at 11:22:06 -03  (total: 00:02:22)

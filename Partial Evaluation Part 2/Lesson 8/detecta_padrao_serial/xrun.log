@@ -1,0 +1,82 @@
+xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s001: Started on Apr 28, 2025 at 11:42:34 -03
+xrun
+	detec_padrao_serial.sv
+	detec_padrao_serial_tb.sv
+	-gui
+	-access +rw
+file: detec_padrao_serial.sv
+	module worklib.detec_padrao_serial:sv
+		errors: 0, warnings: 0
+file: detec_padrao_serial_tb.sv
+	module worklib.detec_padrao_serial_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		detec_padrao_serial_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.detec_padrao_serial_tb:sv <0x2bf06bc5>
+			streams:   7, words: 12850
+		worklib.detec_padrao_serial:sv <0x4c4f7da7>
+			streams:   3, words:   917
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           6       6
+		Scalar wires:        5       -
+		Always blocks:       3       3
+		Initial blocks:      1       1
+		Pseudo assignments:  4       -
+		Process Clocks:      1       1
+	Writing initial simulation snapshot: worklib.detec_padrao_serial_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm detec_padrao_serial_tb.clk detec_padrao_serial_tb.reset detec_padrao_serial_tb.x detec_padrao_serial_tb.match
+Created probe 1
+xcelium> run
+Time=5, Reset=1, x=0, dado_ff=xxxx, match=x
+
+--- Teste 1: Padrão 0111 ---
+Time=15, Reset=0, x=0, dado_ff=0000, match=0
+Time=25, Reset=0, x=0, dado_ff=0000, match=0
+Time=35, Reset=0, x=1, dado_ff=0000, match=0
+Time=45, Reset=0, x=1, dado_ff=0001, match=0
+
+--- Teste 2: Padrão 1011 (não deve casar) ---
+Time=55, Reset=0, x=1, dado_ff=0011, match=0
+Time=65, Reset=0, x=1, dado_ff=0111, match=1
+Time=75, Reset=0, x=0, dado_ff=1111, match=0
+Time=85, Reset=0, x=1, dado_ff=1110, match=0
+
+--- Teste 3: Padrão 0111 novamente ---
+Time=95, Reset=0, x=1, dado_ff=1101, match=0
+Time=105, Reset=0, x=0, dado_ff=1011, match=0
+Time=115, Reset=0, x=1, dado_ff=0110, match=0
+Time=125, Reset=0, x=1, dado_ff=1101, match=0
+
+--- Teste 4: Teste de reset ---
+Time=135, Reset=0, x=1, dado_ff=1011, match=0
+Time=145, Reset=1, x=1, dado_ff=0111, match=1
+Reset aplicado, registrador deve estar zerado
+
+--- Teste 5: Sequência após reset ---
+Time=155, Reset=0, x=1, dado_ff=0000, match=0
+Time=165, Reset=0, x=1, dado_ff=0001, match=0
+Time=175, Reset=0, x=1, dado_ff=0011, match=0
+Time=185, Reset=0, x=1, dado_ff=0111, match=1
+Time=195, Reset=0, x=0, dado_ff=1111, match=0
+Simulation complete via $finish(1) at time 200 NS + 0
+./detec_padrao_serial_tb.sv:68         #10 $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	24.09-s001: Exiting on Apr 28, 2025 at 11:44:32 -03  (total: 00:01:58)
