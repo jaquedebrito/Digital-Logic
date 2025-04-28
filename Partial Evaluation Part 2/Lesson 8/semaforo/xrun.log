@@ -1,50 +1,3 @@
-xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	24.09-s001: Started on Apr 28, 2025 at 11:56:04 -03
-xrun
-	semaforo.sv
-	semaforo_tb.sv
-	-gui
-	-access +rw
-file: semaforo.sv
-	module worklib.semaforo:sv
-		errors: 0, warnings: 0
-file: semaforo_tb.sv
-	module worklib.semaforo_tb:sv
-		errors: 0, warnings: 0
-		Caching library 'worklib' ....... Done
-	Elaborating the design hierarchy:
-	Top level design units:
-		semaforo_tb
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.semaforo_tb:sv <0x337142a9>
-			streams:  11, words: 13051
-		worklib.semaforo:sv <0x463f448b>
-			streams:   6, words:  3502
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		              Instances  Unique
-		Modules:              2       2
-		Registers:           13      13
-		Scalar wires:        10       -
-		Always blocks:        5       5
-		Initial blocks:       2       2
-		Cont. assignments:    1       1
-		Pseudo assignments:   6       -
-		Process Clocks:       1       1
-	Writing initial simulation snapshot: worklib.semaforo_tb:sv
-xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-
--------------------------------------
-Relinquished control to SimVision...
-xcelium> 
-xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
-xcelium> database -open waves -into waves.shm -default
-Created default SHM database waves
-xcelium> probe -create -shm semaforo_tb.amarelo semaforo_tb.clk semaforo_tb.pulso semaforo_tb.reset semaforo_tb.verde semaforo_tb.vermelho
-Created probe 1
-xcelium> run
 Time=0, reset=1, pulso=0, pulso_edge=0, vermelho=0, verde=0, amarelo=0
 Time=5, reset=1, pulso=0, pulso_edge=0, vermelho=1, verde=0, amarelo=1
 Time=20, State: Vermelho=1, Verde=0, Amarelo=1
@@ -72,6 +25,4 @@ Time=175, reset=0, pulso=1, pulso_edge=0, vermelho=1, verde=0, amarelo=0
 Time=180, State: Vermelho=1, Verde=0, Amarelo=0
 Simulation complete via $finish(1) at time 190 NS + 0
 ./semaforo_tb.sv:68         #10 $finish;
-xcelium> ^C
-xcelium> exit
-TOOL:	xrun(64)	24.09-s001: Exiting on Apr 28, 2025 at 11:58:45 -03  (total: 00:02:41)
+
