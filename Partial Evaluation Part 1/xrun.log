@@ -1,0 +1,150 @@
+xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s001: Started on Apr 30, 2025 at 11:39:12 -03
+xrun
+	dec_i2c.sv
+	tb_dec_i2c.sv
+	-gui
+	-access +rw
+Recompiling... reason: file './dec_i2c.sv' is newer than expected.
+	expected: Wed Apr 30 11:23:58 2025
+	actual:   Wed Apr 30 11:38:57 2025
+file: dec_i2c.sv
+	module worklib.dec_i2c:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb_dec_i2c
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.dec_i2c:sv <0x1cb17434>
+			streams:  14, words:  5793
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:               23      23
+		Scalar wires:            11       -
+		Vectored wires:           3       -
+		Always blocks:            3       3
+		Initial blocks:           2       2
+		Pseudo assignments:      10       -
+		Process Clocks:           2       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.tb_dec_i2c:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm tb_dec_i2c.dut.bit_counter tb_dec_i2c.dut.clk tb_dec_i2c.dut.endereco_local tb_dec_i2c.dut.endereco_recebido tb_dec_i2c.dut.escrita tb_dec_i2c.dut.operacao tb_dec_i2c.dut.prev_scl tb_dec_i2c.dut.prev_sda tb_dec_i2c.dut.pronto tb_dec_i2c.dut.reset tb_dec_i2c.dut.scl tb_dec_i2c.dut.sda tb_dec_i2c.dut.shift_reg tb_dec_i2c.dut.sobe_scl tb_dec_i2c.dut.start_cond tb_dec_i2c.dut.state tb_dec_i2c.dut.stop tb_dec_i2c.dut.stop_cond
+Created probe 1
+xcelium> run
+Time=                   0 | SCL=1 | SDA=1 | END=xxxxxxx | OP=x | ESC=x | STOP=x
+Time=                 500 | SCL=1 | SDA=1 | END=xxxxxxx | OP=x | ESC=0 | STOP=0
+Time=                2000 | SCL=1 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               11000 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               16000 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               19300 | SCL=0 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               22600 | SCL=1 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               25900 | SCL=0 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               32500 | SCL=1 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               35800 | SCL=0 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               39100 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               42400 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               45700 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               52300 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               55600 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               58900 | SCL=0 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               62200 | SCL=1 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               65500 | SCL=0 | SDA=1 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               68800 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               72100 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               75400 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               82000 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               85300 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               91900 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=               95200 | SCL=0 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=              101800 | SCL=1 | SDA=0 | END=0000000 | OP=0 | ESC=0 | STOP=0
+Time=              103500 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=1 | STOP=0
+Time=              104500 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              105100 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              111700 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              115000 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              116500 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=1
+Time=              117500 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              173300 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              178300 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              181600 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              184900 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              188200 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              194800 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              198100 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              201400 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              204700 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              208000 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              214600 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              217900 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              221200 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              224500 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              227800 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              231100 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              234400 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              237700 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              244300 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              247600 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              250900 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              254200 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              257500 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              260800 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              264100 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              265500 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=1 | STOP=0
+Time=              266500 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              267400 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              274000 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              277300 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              278500 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=1
+Time=              279500 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              335600 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              340600 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              343900 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              347200 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              350500 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              353800 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              357100 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              360400 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              363700 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              367000 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              370300 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              373600 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              376900 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              380200 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              383500 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              386800 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              390100 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              393400 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              396700 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              400000 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              403300 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              406600 | SCL=1 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              409900 | SCL=0 | SDA=1 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              413200 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              416500 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              419800 | SCL=0 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              426400 | SCL=1 | SDA=0 | END=1100100 | OP=0 | ESC=0 | STOP=0
+Time=              427500 | SCL=1 | SDA=0 | END=1010101 | OP=0 | ESC=0 | STOP=0
+Time=              429700 | SCL=0 | SDA=0 | END=1010101 | OP=0 | ESC=0 | STOP=0
+Time=              436300 | SCL=1 | SDA=0 | END=1010101 | OP=0 | ESC=0 | STOP=0
+Time=              439600 | SCL=1 | SDA=1 | END=1010101 | OP=0 | ESC=0 | STOP=0
+Time=              441500 | SCL=1 | SDA=1 | END=1010101 | OP=0 | ESC=0 | STOP=1
+Time=              442500 | SCL=1 | SDA=1 | END=1010101 | OP=0 | ESC=0 | STOP=0
+Simulation complete
+Simulation complete via $finish(1) at time 4929 NS + 0
+./tb_dec_i2c.sv:64         $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	24.09-s001: Exiting on Apr 30, 2025 at 11:39:48 -03  (total: 00:00:36)
