@@ -1,0 +1,58 @@
+# Cadence Xcelium Simulation Files
+*.log
+xrun.log
+*.history
+*.diag
+*.err
+*.key
+*.trn
+*.dsn
+*.shm/
+.simvision/
+INCA_libs/
+*.so
+*.o
+
+# Waveform files (keeping PDFs, excluding raw waveform databases)
+*.vcd
+*.fsdb
+*.wlf
+*.vstf
+
+# Synthesis outputs (keeping reports)
+*.v.syn
+*.sdc
+*.mapped
+*_mapped.v
+*.innovus/
+fv/
+
+# TCL generated files
+*.tcl.log
+genus.log*
+*.cmd
+*.rpt.old
+
+# Temporary files
+*.tmp
+*.bak
+*~
+*.swp
+*.swo
+.DS_Store
+
+# Build directories
+build/
+work/
+output/
+sim/
+transcript
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+Thumbs.db
+.directory
