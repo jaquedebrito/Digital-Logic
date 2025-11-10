@@ -3,8 +3,20 @@
 [![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-blue.svg)](https://en.wikipedia.org/wiki/SystemVerilog)
 [![Cadence](https://img.shields.io/badge/Tools-Cadence-orange.svg)](https://www.cadence.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Projects](https://img.shields.io/badge/Projects-15+-green.svg)](#-projects-index)
+[![Documentation](https://img.shields.io/badge/Docs-Comprehensive-brightgreen.svg)](ARCHITECTURE.md)
+[![Code Quality](https://img.shields.io/badge/Quality-Production-success.svg)](CONTRIBUTING.md)
 
 This repository contains comprehensive projects developed for the Digital Logic course, focused on designing and simulating digital circuits using SystemVerilog. The projects demonstrate mastery of digital design fundamentals, finite state machines, combinational and sequential logic, and hardware synthesis.
+
+### 📊 Repository Statistics
+
+- **📁 Total Projects:** 15+ individual designs
+- **📝 SystemVerilog Files:** 34 modules and testbenches
+- **📄 Documentation Files:** 14 detailed README files
+- **💻 Lines of Code:** 895+ lines of SystemVerilog
+- **🔧 Tools:** Cadence Xcelium, Cadence Genus
+- **📚 Topics:** FSMs, Protocols, Counters, Arbiters, Encoders/Decoders
 
 ## 📑 Table of Contents
 
@@ -286,7 +298,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+Contributions, issues, and feature requests are welcome! Feel free to check the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## 📖 Additional Documentation
+
+- 📋 **[RESUMO.md](RESUMO.md)** - Comprehensive summary in Portuguese (Resumo completo em Português)
+- 📐 **[ARCHITECTURE.md](ARCHITECTURE.md)** - Repository structure and organization guide
+- ⚡ **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick start commands and code templates
+- 🤝 **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines and best practices
 
 ## 📧 Contact
 
@@ -296,3 +315,14 @@ Jaqueline Ferreira de Brito
 ---
 
 **⭐ If you find this repository helpful, please consider giving it a star!**
+
+### 🔗 Quick Navigation
+
+| Documentation | Description |
+|---------------|-------------|
+| [Main README](README.md) | Complete project overview and index |
+| [Summary (PT)](RESUMO.md) | Resumo completo em Português |
+| [Architecture](ARCHITECTURE.md) | Repository structure and design flow |
+| [Quick Reference](QUICK_REFERENCE.md) | Commands, templates, and tips |
+| [Contributing](CONTRIBUTING.md) | How to contribute to this repository |
+| [License](LICENSE) | MIT License details |
