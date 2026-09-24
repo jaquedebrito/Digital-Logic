@@ -1,0 +1,10 @@
+testcase,seed,status,duration_sec,uvm_error_count,uvm_fatal_count,coverage,ttr_root_cause_sec,operational_error
+apb_corner_waitstate_max,101,PASS,27,0,0,74.0,,NONE
+apb_corner_waitstate_max,202,PASS,29,0,0,75.2,,NONE
+apb_corner_waitstate_max,303,PASS,28,0,0,73.7,,LOG_INCOMPLETE
+apb_injected_protocol_violation,101,FAIL_EXPECTED,20,1,0,70.0,5,NONE
+apb_injected_protocol_violation,202,FAIL_EXPECTED,21,1,0,69.4,6,NONE
+apb_injected_protocol_violation,303,FAIL_EXPECTED,22,2,0,70.7,6,COMMAND_INVALID
+apb_smoke_basic_rw,101,PASS,18,0,0,62.0,,NONE
+apb_smoke_basic_rw,202,PASS,19,0,0,63.5,,NONE
+apb_smoke_basic_rw,303,PASS,17,0,0,61.8,,NONE
