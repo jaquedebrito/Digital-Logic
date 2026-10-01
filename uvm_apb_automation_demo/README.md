@@ -1,34 +1,74 @@
 # APB/UVM Testcase Automation Demo
 
-Este material demonstra como automatizar a coleta de métricas comparáveis para o artigo sobre verificação UVM.
+Este material agora inclui um fluxo completo para você gerar **evidência real** do artigo:
 
-## Objetivo
+- DUT APB simples
+- verificação manual (1 teste por vez)
+- regressão automatizada
+- cenário de falha injetada
+- consolidação automática de métricas
 
-Padronizar saídas de regressão APB e gerar uma tabela única com:
+## Estrutura
 
-- tempo total de execução
-- taxa de erro operacional
-- tempo até causa-raiz (TTR)
-- cobertura
-- reprodutibilidade
+- `rtl/apb_simple_slave.sv` → DUT APB slave com 4 registradores e wait-state configurável
+- `tb/tb_apb_simple_slave.sv` → testbench com 3 testcases
+- `scripts/run_manual.sh` → execução manual de um testcase por vez
+- `scripts/run_regression.sh` → regressão em lote (3 testcases x 3 seeds)
+- `scripts/run_one_test.sh` → runner base que gera log padronizado
+- `collect_metrics.py` → consolida logs e gera relatórios
 
-## Classes de teste
+## Testcases implementados
 
-1. **Smoke** — `apb_smoke_basic_rw`
-   - Cenário: reset + 1 write + 1 read no mesmo endereço.
-   - Esperado: `PASS`, `UVM_ERROR=0`.
+1. `apb_smoke_basic_rw` (smoke)
+2. `apb_corner_waitstate_max` (corner)
+3. `apb_injected_protocol_violation` (erro injetado)
 
-2. **Corner case** — `apb_corner_waitstate_max`
-   - Cenário: escravo mantém `PREADY=0` por vários ciclos antes de responder.
-   - Esperado: `PASS`, sem timeout indevido.
+## Pré-requisito de simulação
 
-3. **Erro injetado** — `apb_injected_protocol_violation`
-   - Cenário: violação proposital de protocolo (`PENABLE` sem setup válido).
-   - Esperado: `FAIL_EXPECTED` com detecção no monitor/scoreboard.
+Use uma destas opções na máquina onde você vai rodar os testes:
+
+- Cadence Xcelium (`xrun`)
+- ou Icarus Verilog (`iverilog` + `vvp`)
+
+> Se nenhum simulador estiver disponível, o script cria log com `operational_error=SIMULATOR_NOT_FOUND`.
+
+## Método manual (1 teste por vez)
+
+Exemplo:
+
+```bash
+cd /home/runner/work/Digital-Logic/Digital-Logic/uvm_apb_automation_demo
+./scripts/run_manual.sh apb_smoke_basic_rw 101
+./scripts/run_manual.sh apb_corner_waitstate_max 202
+./scripts/run_manual.sh apb_injected_protocol_violation 303
+```
+
+Logs gerados em:
+
+- `run_logs/manual/*.log`
+
+Consolidar métricas do manual:
+
+```bash
+python3 collect_metrics.py --log-dir run_logs/manual --out-dir outputs/manual_summary
+```
+
+## Método automatizado (regressão em lote)
+
+```bash
+cd /home/runner/work/Digital-Logic/Digital-Logic/uvm_apb_automation_demo
+./scripts/run_regression.sh
+```
+
+Saídas da regressão automatizada:
+
+- logs padronizados: `run_logs/automated/*.log`
+- relatório detalhado: `outputs/real_regression/regression_report.csv`
+- tabela consolidada: `outputs/real_regression/summary_metrics.md`
 
 ## Formato de log padronizado
 
-Cada execução contém os campos abaixo:
+Cada execução gera um arquivo `key=value` com:
 
 - `testcase`
 - `seed`
@@ -38,25 +78,17 @@ Cada execução contém os campos abaixo:
 - `uvm_error_count`
 - `uvm_fatal_count`
 - `coverage`
-- `first_failure_time` (opcional)
-- `root_cause_time` (opcional)
+- `first_failure_time` (quando aplicável)
+- `root_cause_time` (quando aplicável)
 - `operational_error`
 
-## Execução da demonstração
+## Como usar isso no artigo (prova concreta)
 
-```bash
-cd /home/runner/work/Digital-Logic/Digital-Logic/uvm_apb_automation_demo
-python3 collect_metrics.py
-```
+Para banca, anexe:
 
-Saídas geradas:
+1. logs brutos (`run_logs/manual` e/ou `run_logs/automated`)
+2. relatório CSV consolidado
+3. tabela markdown consolidada
+4. comandos executados para reproduzir os números
 
-- `outputs/regression_report.csv`
-- `outputs/summary_metrics.md`
-
-## Interpretação da reprodutibilidade
-
-Nesta demonstração, a reprodutibilidade por testcase é a consistência de status entre as três seeds da regressão:
-
-- `100%` = todas as seeds tiveram o mesmo resultado esperado
-- `<100%` = houve oscilação de resultado entre seeds
+Assim você mostra rastreabilidade completa do resultado.
